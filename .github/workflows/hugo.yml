@@ -2,7 +2,7 @@ name: Deploy Hugo
 
 on:
   push:
-    branches:
+分支:
       - main
 
 jobs:
