@@ -1,3 +1,7 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+baseURL = "https://mmlbzj.github.io/"
+languageCode = "zh-CN"
+title = "我的个人网站"
+theme = "PaperMod"
+
+[params]
+  description = "欢迎来到我的主页"
