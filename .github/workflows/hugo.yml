@@ -1,18 +1,19 @@
-name: Deploy Hugo
-
+name: Deploy Hugo Site
 on:
   push:
 分支:
       - main
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: true
-          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -20,11 +21,14 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: Install Theme
+        run: git clone https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod --depth=1
+
       - name: Build
         run: hugo --minify
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
