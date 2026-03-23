@@ -1,7 +1,7 @@
 name: Deploy Hugo Site
 on:
   push:
-分支:
+    branches:
       - main
 
 env:
