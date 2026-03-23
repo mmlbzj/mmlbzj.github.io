@@ -8,10 +8,10 @@ paginate = 10
 [params]
   author = "mmlbzj"
   description = "学习记录 | 运维 | 技术笔记"
-  keywords = "博客,Hugo,运维,Linux"
+  # 修复这里！数组格式，不再报错
+  keywords = ["博客", "Hugo", "运维", "Linux"]
   dateFormat = "2006-01-02"
 
-  # 模式：light / dark / auto
   defaultTheme = "auto"
   showToc = true
   showReadingTime = true
